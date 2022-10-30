@@ -2,7 +2,7 @@
 $("#currentDay").text(moment().format("dddd, MMMM D, YYYY"));
 var containerEl = document.querySelector(".container");
 
-var day = localStorage.getItem("day") || ["", "", "", "", "", "", "", "", ""];
+var day = JSON.parse(localStorage.getItem("day")) || ["", "", "", "", "", "", "", "", ""];
 
 function main() {
 
@@ -11,6 +11,8 @@ function main() {
     // 	<textarea class="past/present/future"></textarea>
     // 	<button class="saveBtn">Save</button>
     //</div>
+
+    var rows = [];
 
     for (var i = 0; i < day.length; i++) {
 
@@ -53,7 +55,24 @@ function main() {
         tempD.appendChild(tempS);
         tempD.appendChild(tempT);
         tempD.appendChild(tempB);
+
+        rows.push(tempD);
     }
+
+    // console.log(rows);
+
+    // loops through rows to get each button
+    rows.forEach(row => {
+        row.children[2].addEventListener("click", (e) => {
+
+            // save the value of the text box to the
+            // schedule array in the correct position,
+            // and save to localStorage
+            day[e.target.parentElement.dataset.i] = e.target.parentElement.children[1].value;
+            localStorage.setItem("day", JSON.stringify(day));
+
+        });
+    })
 }
 
 main();
