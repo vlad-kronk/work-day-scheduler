@@ -1,4 +1,4 @@
-# code-quiz
+# work-day-scheduler
 
 ![](https://img.shields.io/badge/JavaScript-yellow.svg?style=for-the-badge)
 
