@@ -40,11 +40,15 @@ textarea {
 
 .hour {
   background-color: #ffffff;
-  text-align: right;
+  display: flex;
+  /* text-align: right; */
   color: #000000;
   border-top: 1px dashed #000000;
+  padding: 15px; 
   width: 10%;
-  padding: 15px;
+  justify-content: center;
+  align-items: center;
+  /* outline: 2px solid red; */
 }
 
 .past {
